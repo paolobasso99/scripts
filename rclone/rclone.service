@@ -1,0 +1,27 @@
+[Unit]
+Description=rclone Service
+Wants=network-online.target
+After=network-online.target
+AssertPathIsDirectory=/home/puser/mediabox/gd
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rclone mount gdcache: /home/puser/mediabox/gd \
+--config=/home/puser/.config/rclone/rclone.conf \
+--allow-other \
+--buffer-size 512M \
+--dir-cache-time 96h \
+--log-level INFO \
+--log-file /home/puser/logs/rclone.log \
+--timeout 1h \
+--umask 002 \
+--user-agent rcloneapp \
+-- rc \
+--read-only
+ExecStop=/bin/fusermount -uz /home/puser/mediabox/gd
+Restart=on-failure
+User=puser
+Group=puser
+
+[Install]
+WantedBy=multi-user.target
