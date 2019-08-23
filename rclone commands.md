@@ -1,0 +1,2 @@
+MOUNT:
+rclone mount gdcache: /home/puser/mediabox/gd --allow-other --buffer-size 512M --dir-cache-time 96h --log-level INFO --log-file /home/puser/logs/rclone.log --timeout 1h --umask 002 --rc --read-only
