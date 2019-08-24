@@ -2,21 +2,22 @@
 Description=rclone Service
 Wants=network-online.target
 After=network-online.target
-AssertPathIsDirectory=/home/puser/mediabox/gd
 
 [Service]
-Type=simple
+Type=notify
+Environment=RCLONE_CONFIG=/home/puser/.config/rclone/rclone.conf
+
 ExecStart=/usr/bin/rclone mount gdcache: /home/puser/mediabox/gd \
 --config=/home/puser/.config/rclone/rclone.conf \
 --allow-other \
---buffer-size 512M \
+--buffer-size 1G \
 --dir-cache-time 96h \
 --log-level INFO \
 --log-file /home/puser/logs/rclone.log \
 --timeout 1h \
 --umask 002 \
 --user-agent rcloneapp \
--- rc \
+--rc \
 --read-only
 ExecStop=/bin/fusermount -uz /home/puser/mediabox/gd
 Restart=on-failure
