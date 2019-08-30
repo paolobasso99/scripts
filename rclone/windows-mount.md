@@ -1,0 +1,2 @@
+# Command
+mount gdcrypt: G: --config "C:\Users\basso\.config\rclone\rclone.conf" --allow-other --buffer-size 1G --dir-cache-time 96h --log-level INFO --vfs-read-chunk-size 32M --vfs-read-chunk-size-limit off --vfs-cache-mode writes --timeout 1h --user-agent rcloneapp --rc
