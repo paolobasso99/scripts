@@ -7,7 +7,7 @@ After=network-online.target
 Type=notify
 Environment=RCLONE_CONFIG=/home/puser/.config/rclone/rclone.conf
 
-ExecStart=/usr/bin/rclone mount gdcache: /home/puser/mediabox/gd \
+ExecStart=/usr/bin/rclone mount gdcrypt: /home/puser/mediabox/gd \
 --config=/home/puser/.config/rclone/rclone.conf \
 --allow-other \
 --buffer-size 1G \
