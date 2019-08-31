@@ -8,7 +8,7 @@
     * Type the following under Applications:
     * Path: `C:\path\to\rclone\rclone.exe`
     * Startup Directory: `C:\path\to\rclone`
-    * Arguments: `mount gdcrypt: X: --config "C:\Users\username\.config\rclone\rclone.conf" --allow-other --buffer-size 1G --dir-cache-time 96h --log-level INFO --vfs-read-chunk-size 32M --vfs-read-chunk-size-limit off --vfs-cache-mode writes --timeout 1h --user-agent rcloneapp --rc`
+    * Arguments: `mount gdcrypt: X: --config "C:\Users\username\.config\rclone\rclone.conf" --allow-other --buffer-size 1G --dir-cache-time 96h --log-level INFO --timeout 1h --user-agent rcloneapp`
     * Service Name: `rcloneMount`
     * Under Exit type: 10000 ms, Select the Restart application setting
 4. You should now see a folder that says gdcrypt (X:) under your Windows Explorer. If not, type `nssm start rcloneMount`
