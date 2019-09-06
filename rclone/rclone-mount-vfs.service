@@ -1,0 +1,31 @@
+[Unit]
+Description=rclone Service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=notify
+Environment=RCLONE_CONFIG=/home/**USERNAME**/.config/rclone/rclone.conf
+
+ExecStart=/usr/bin/rclone mount gdcrypt: /home/**USERNAME**/mediabox/gd \
+--config=/home/**USERNAME**/.config/rclone/rclone.conf \
+--allow-other \
+--buffer-size 1G \
+--dir-cache-time 96h \
+--log-level INFO \
+--log-file /home/**USERNAME**/logs/rclone.log \
+--umask 002 \
+--user-agent rcloneapp \
+--fast-list \
+--drive-chunk-size 64M \
+--vfs-read-chunk-size 32M \
+--vfs-read-chunk-size-limit off \
+--vfs-cache-mode writes 
+ExecStop=/bin/fusermount -uz /home/**USERNAME**/mediabox/gd
+Restart=on-failure
+RestartSec=5s
+User=**USERNAME**
+Group=**USERNAME**
+
+[Install]
+WantedBy=multi-user.target
