@@ -1,6 +1,7 @@
 @echo off
 title \Mount rclone on Windows!
 echo Mount rclone on Windows!
+echo Mounting, please wait...
 
 :: Get configs
 for /f "delims=" %%x in (config.txt) do (set "%%x")
