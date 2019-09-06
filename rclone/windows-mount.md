@@ -10,8 +10,8 @@
     * Path: `C:\path\to\rclone\rclone.exe`
     * Startup Directory: `C:\path\to\rclone`
     * Arguments: 
-      * VFS: `mount gdcrypt: X: --config "C:\Users\**USERNAME**\.config\rclone\rclone.conf" --allow-other --buffer-size 1G --dir-cache-time 96h --log-level INFO --vfs-read-chunk-size 32M --vfs-read-chunk-size-limit off --vfs-cache-mode writes --timeout 1h --user-agent rcloneapp --fast-list --vfs-read-chunk-size 32M --vfs-read-chunk-size-limit off --vfs-cache-mode writes`
-      * No VFS: `mount gdcrypt: X: --config "C:\Users\**USERNAME**\.config\rclone\rclone.conf" --allow-other --buffer-size 1G --dir-cache-time 96h --log-level INFO --vfs-read-chunk-size 32M --vfs-read-chunk-size-limit off --vfs-cache-mode writes --timeout 1h --user-agent rcloneapp --fast-list`
+      * VFS: `mount gdcrypt: X: --config "C:\Users\**USERNAME**\.config\rclone\rclone.conf" --allow-other --buffer-size 1G --dir-cache-time 96h --log-level INFO --timeout 1h --user-agent rcloneapp --fast-list --vfs-read-chunk-size 32M --vfs-read-chunk-size-limit off --vfs-cache-mode writes`
+      * No VFS: `mount gdcrypt: X: --config "C:\Users\**USERNAME**\.config\rclone\rclone.conf" --allow-other --buffer-size 1G --dir-cache-time 96h --log-level INFO --timeout 1h --user-agent rcloneapp --fast-list`
     * Service Name: `rcloneMount`
     * Under Exit type: 10000 ms, Select the Restart application setting
 6. You should now see a folder that says gdcrypt (X:) under your Windows Explorer. If not, type `nssm start rcloneMount`
