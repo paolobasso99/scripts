@@ -1,0 +1,3 @@
+RCLONE_CONFIG_PATH=C:\Users\**USERNAME**\.config\rclone\rclone.conf
+SRC=googledrive:
+DEST=X:

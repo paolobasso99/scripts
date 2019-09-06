@@ -1,5 +1,14 @@
-# Setting up Rclone Mount
+# Mount rclone in Windows
 
+## Mount using bat
+1. Inside `rclone-mount-bat` edit `config.txt.example` and save as `config.txt`
+2. Duble click on `rclone-mount.bat` or open a CMD in that folder and type `rclone-mount.bat`
+
+## Mount commands
+* VFS: `mount gdcrypt: X: --config "C:\Users\**USERNAME**\.config\rclone\rclone.conf" --allow-other --buffer-size 1G --dir-cache-time 96h --log-level INFO --user-agent rcloneapp --fast-list --vfs-read-chunk-size 32M --vfs-read-chunk-size-limit off --vfs-cache-mode writes --stats 1m`
+* No VFS (Must use CACHE!): `mount gdcrypt: X: --config "C:\Users\**USERNAME**\.config\rclone\rclone.conf" --allow-other --buffer-size 1G --dir-cache-time 96h --log-level INFO --user-agent rcloneapp --fast-list --stats 1m`
+
+## Mount as A service
 1. Download rclone for windows.
 2. Download **WinFsp** and select all of the options during installation
 3. Download the **nssm tool**
@@ -11,7 +20,7 @@
     * Startup Directory: `C:\path\to\rclone`
     * Arguments: 
       * VFS: `mount gdcrypt: X: --config "C:\Users\**USERNAME**\.config\rclone\rclone.conf" --allow-other --buffer-size 1G --dir-cache-time 96h --log-level INFO --user-agent rcloneapp --fast-list --vfs-read-chunk-size 32M --vfs-read-chunk-size-limit off --vfs-cache-mode writes`
-      * No VFS: `mount gdcrypt: X: --config "C:\Users\**USERNAME**\.config\rclone\rclone.conf" --allow-other --buffer-size 1G --dir-cache-time 96h --log-level INFO --user-agent rcloneapp --fast-list`
+      * No VFS (Must use CACHE!): `mount gdcrypt: X: --config "C:\Users\**USERNAME**\.config\rclone\rclone.conf" --allow-other --buffer-size 1G --dir-cache-time 96h --log-level INFO --user-agent rcloneapp --fast-list`
     * Service Name: `rcloneMount`
     * Under Exit type: 10000 ms, Select the Restart application setting
 6. You should now see a folder that says gdcrypt (X:) under your Windows Explorer. If not, type `nssm start rcloneMount`
