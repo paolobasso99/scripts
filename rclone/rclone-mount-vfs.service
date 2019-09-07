@@ -22,8 +22,8 @@ ExecStart=/usr/bin/rclone mount gdcrypt: /home/**USERNAME**/mediabox/gd \
 --vfs-read-chunk-size-limit off \
 --vfs-cache-mode writes 
 ExecStop=/bin/fusermount -uz /home/**USERNAME**/mediabox/gd
-Restart=on-failure
-RestartSec=5s
+Restart=always
+RestartSec=1s
 User=**USERNAME**
 Group=**USERNAME**
 
