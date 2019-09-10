@@ -7,7 +7,7 @@ After=network-online.target
 Type=notify
 Environment=RCLONE_CONFIG=/home/**USERNAME**/.config/rclone/rclone.conf
 
-ExecStart=/usr/bin/rclone mount gdcrypt: /home/**USERNAME**/mediabox/gd \
+ExecStart=/usr/bin/rclone mount gdcrypt: /mnt/gd \
 --config=/home/**USERNAME**/.config/rclone/rclone.conf \
 --allow-other \
 --buffer-size 1G \
@@ -21,7 +21,7 @@ ExecStart=/usr/bin/rclone mount gdcrypt: /home/**USERNAME**/mediabox/gd \
 --vfs-read-chunk-size 32M \
 --vfs-read-chunk-size-limit off \
 --vfs-cache-mode writes 
-ExecStop=/bin/fusermount -uz /home/**USERNAME**/mediabox/gd
+ExecStop=/bin/fusermount -uz /mnt/gd
 Restart=always
 RestartSec=1s
 User=**USERNAME**
