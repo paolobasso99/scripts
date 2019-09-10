@@ -5,15 +5,15 @@ After=network-online.target
 
 [Service]
 Type=notify
-Environment=RCLONE_CONFIG=/home/**USERNAME**/.config/rclone/rclone.conf
+Environment=RCLONE_CONFIG=/home/**USERNAME**/rclone/rclone.conf
 
 ExecStart=/usr/bin/rclone mount gdcrypt: /mnt/gd \
---config=/home/**USERNAME**/.config/rclone/rclone.conf \
+--config=/home/**USERNAME**/rclone/rclone.conf \
 --allow-other \
 --buffer-size 1G \
 --dir-cache-time 96h \
 --log-level INFO \
---log-file /home/**USERNAME**/logs/rclone.log \
+--log-file /home/**USERNAME**/rclone/rclone.log \
 --umask 002 \
 --user-agent rcloneapp \
 --fast-list 
