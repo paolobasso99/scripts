@@ -1,6 +1,6 @@
 tasks:
   # Download Fitgirl Repacks with Deluge from Jackett 1337x RSS feed searching [FitGirl Repack]
-  # Requisites
+  # Requisites:
   #   - Jackett
   #   - 1337x configured in jackett
   #   - Deluge with label plugin
@@ -11,7 +11,7 @@ tasks:
       all_entries: no
     age:
       field: pubDate
-      action: accept
+      action: reject
       age: 5 days
     torrent_alive:
       min_seeds: 2
