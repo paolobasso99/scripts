@@ -6,13 +6,12 @@ tasks:
   #   - Deluge with label plugin
   #   - Telegram bot for notifications
   fitgirl:
-    rss: 
-      url: "{? jackett.url ?}/api/v2.0/indexers/1337x/results/torznab/api?apikey={? jackett.key ?}&t=search&cat=4050&q=%5BFitGirl%20Repack%5D"
-      all_entries: no
-    age:
-      field: pubDate
-      action: reject
-      age: 5 days
+    limit:
+      amount: 5
+      from:
+        rss: 
+          url: "{? jackett.url ?}/api/v2.0/indexers/1337x/results/torznab/api?apikey={? jackett.key ?}&t=search&cat=4050&q=%5BFitGirl%20Repack%5D"
+          all_entries: no
     torrent_alive:
       min_seeds: 2
     deluge:
