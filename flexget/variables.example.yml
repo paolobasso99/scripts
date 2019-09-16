@@ -1,0 +1,31 @@
+####################
+# Global Variables #
+####################
+jackett:
+  url: https://jackett.example.com
+  key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+deluge:
+  host: localhost
+  port: 8112
+  username: localclient
+  password: password
+
+telegram:
+  bot_token: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  username: "@username"
+
+
+###########################
+# Task specific Variables #
+###########################
+fitgirl:
+  deluge:
+    label: 'games'
+    queue_to_top: yes
+  notifications:
+    task:
+      title: "FitGirl Repacks"
+    abort:
+      title: "FitGirl Repacks abort"
+      Message: "The FlexGet fitgirl has been aborted."
