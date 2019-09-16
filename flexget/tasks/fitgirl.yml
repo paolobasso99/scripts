@@ -13,6 +13,7 @@ tasks:
           url: "{? jackett.url ?}/api/v2.0/indexers/1337x/results/torznab/api?apikey={? jackett.key ?}&t=search&cat=4050&q=%5BFitGirl%20Repack%5D"
           all_entries: no
     accept_all: yes
+    redirect_url: yes
     deluge:
       host: '{? deluge.host ?}'
       port: '{? deluge.port ?}'
