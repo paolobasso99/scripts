@@ -6,6 +6,7 @@ tasks:
   #   - Deluge with label plugin
   #   - Telegram bot for notifications
   fitgirl:
+    torrent_alive: yes
     rss: 
       url: "{? jackett.url ?}/api/v2.0/indexers/1337x/results/torznab/api?apikey={? jackett.key ?}&t=search&cat=4050&q=Green%20Hell%20%5BFitGirl%20Repack%5D"
       all_entries: no
