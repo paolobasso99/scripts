@@ -1,5 +1,6 @@
 tasks:
-  # Add shows in trakt watchlist to sonarr
+  # Add shows in trakt watchlist to sonarr.
+  # You need to authorize your trakt account. See `flexget trakt auth -h` on how to.
   # Requisites:
   #   - Sonarr
   #   - Trakt account
