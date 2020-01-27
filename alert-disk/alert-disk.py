@@ -1,15 +1,16 @@
 import shutil
 import requests
+import json
 
 
-DIR_TO_CHECK = "E:\Paolo Basso"
+DIR_TO_CHECK = "/srv"
 DISK_PERCENTAGE = 50
 HEALTH_CHECK_URL = "https://hc-ping.com/"
-SERVER_NAME="My Awesome"
-NOTIFICATIONS_URL = "notify.example.com"
+SERVER_NAME = "My Awesome"
+NOTIFICATIONS_URL = "https://notify.example.com"
 NOTIFICATION_API_KEY = ""
 NOTIFICATION_SUBJECT = f"Your server \"{SERVER_NAME}\" is running out of space!"
-NOTIFICATION_FROM_EMAIL = "alert-disk@exaple.com"
+NOTIFICATION_FROM_EMAIL = "alert-disk@example.com"
 
 
 def run():
@@ -26,10 +27,10 @@ def run():
         }
 
         payload = {
-            "handlers": {
+            "handlers": [
                 "email",
                 "telegram"
-            },
+            ],
             "emailFrom": NOTIFICATION_FROM_EMAIL,
             "subject": NOTIFICATION_SUBJECT,
             "message": f"The path \"{DIR_TO_CHECK}\" on your \"{SERVER_NAME}\" server has only {bytes_to_gigabytes(free)}GB free out of {bytes_to_gigabytes(total)}GB!"
@@ -40,9 +41,18 @@ def run():
             headers=headers,
             data=json.dumps(payload)
         )
+        
+        res_json = res.json()
+        if(res_json["valid"] and res_json["oneSucceeded"]): 
+            requests.get(HEALTH_CHECK_URL)
+        else:
+            requests.get(HEALTH_CHECK_URL + "/fail")
+        
+
 
 def bytes_to_gigabytes(num_of_bytes):
     return int(num_of_bytes / (1024*1024*1024))
+
 
 if __name__ == '__main__':
     run()
