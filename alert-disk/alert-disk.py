@@ -4,7 +4,7 @@ import json
 
 
 DIR_TO_CHECK = "/srv"
-DISK_PERCENTAGE = 50
+FREE_DISK_PERCENTAGE = 50
 HEALTH_CHECK_URL = "https://hc-ping.com/"
 SERVER_NAME = "My Awesome"
 NOTIFICATIONS_URL = "https://notify.example.com"
@@ -16,9 +16,9 @@ NOTIFICATION_FROM_EMAIL = "alert-disk@example.com"
 def run():
     total, used, free = shutil.disk_usage(DIR_TO_CHECK)
 
-    used_percent = used*100 / total
+    free_percent = free*100 / total
 
-    if (used_percent > DISK_PERCENTAGE):
+    if (free_percent < DISK_PERCENTAGE):
 
         headers = {
             'user-agent': 'alert-disk',
