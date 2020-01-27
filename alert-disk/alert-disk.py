@@ -6,6 +6,7 @@ DIR_TO_CHECK = "E:\Paolo Basso"
 DISK_PERCENTAGE = 50
 HEALTH_CHECK_URL = "https://hc-ping.com/"
 SERVER_NAME="My Awesome"
+NOTIFICATIONS_URL = "notify.example.com"
 NOTIFICATION_API_KEY = ""
 NOTIFICATION_SUBJECT = f"Your server \"{SERVER_NAME}\" is running out of space!"
 NOTIFICATION_FROM_EMAIL = "alert-disk@exaple.com"
