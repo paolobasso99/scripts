@@ -18,7 +18,7 @@ def run():
 
     free_percent = free*100 / total
 
-    if (free_percent < DISK_PERCENTAGE):
+    if (free_percent < FREE_DISK_PERCENTAGE):
 
         headers = {
             'user-agent': 'alert-disk',
