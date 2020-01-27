@@ -47,7 +47,8 @@ def run():
             requests.get(HEALTH_CHECK_URL)
         else:
             requests.get(HEALTH_CHECK_URL + "/fail")
-        
+    else: 
+        requests.get(HEALTH_CHECK_URL)
 
 
 def bytes_to_gigabytes(num_of_bytes):
