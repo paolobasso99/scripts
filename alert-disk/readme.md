@@ -7,5 +7,6 @@ For the notifications this app uses my [personal-notifications](https://github.c
 ## Setup
 1. install python 3.8 or above on the host machine
 2. edit the envirorment variables inside the script
-3. setup a crontab as follow: `0 */3 * * * /srv/scripts/alert-disk.py`
+3. check if the script works
+4. setup a crontab as follow: `0 */3 * * * python3 /srv/scripts/alert-disk.py`
 
